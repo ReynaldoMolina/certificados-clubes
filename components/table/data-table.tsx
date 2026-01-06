@@ -19,31 +19,21 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useState } from "react";
-import { ArrowLeft, Download, MoreVertical, SearchIcon, X } from "lucide-react";
-import { toast } from "sonner";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
-} from "../ui/input-group";
-import { CreatePersonForm } from "../form/create";
-import { Button } from "../ui/button";
-import { useLocalPeople } from "@/lib/use-local-people";
 import { getColumns } from "./columns";
-import { useRouter } from "next/navigation";
+import { TableActions } from "./actions/actions";
+import { useCertificate } from "@/lib/use-certificate";
 
 export function DataTable() {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [rowSelection, setRowSelection] = useState({});
 
-  const { people, addPerson, editPerson, deletePerson } = useLocalPeople();
+  const { members, addMember, editMember, deleteMember } = useCertificate();
 
-  const columns = getColumns(deletePerson, editPerson);
+  const columns = getColumns(editMember, deleteMember);
 
   const table = useReactTable({
-    data: people,
+    data: members,
     columns,
     getCoreRowModel: getCoreRowModel(),
     onSortingChange: setSorting,
@@ -58,49 +48,20 @@ export function DataTable() {
     },
   });
 
-  const column = table.getColumn("nombre");
-  const router = useRouter();
+  const totalRows = table.getFilteredRowModel().rows.length || 0;
+  const selectedRowsIds =
+    table.getFilteredSelectedRowModel().rows.map((r) => r.index) || [];
+  const selectedRows = selectedRowsIds.length;
 
   return (
     <>
-      <div className="inline-flex gap-1 w-full">
-        <Button variant="outline" size="icon" onClick={() => router.back()}>
-          <ArrowLeft />
-        </Button>
-        <InputGroup className="max-w-50">
-          <InputGroupInput
-            placeholder="Buscar"
-            className="text-sm"
-            value={(column?.getFilterValue() as string) ?? ""}
-            onChange={(event) => column?.setFilterValue(event.target.value)}
-          />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-          <InputGroupAddon align="inline-end">
-            <InputGroupButton
-              size="icon-xs"
-              disabled={column?.getFilterValue() === undefined}
-              onClick={() => column?.setFilterValue("")}
-            >
-              <X />
-            </InputGroupButton>
-          </InputGroupAddon>
-        </InputGroup>
-
-        <div className="inline-flex gap-1 ml-auto">
-          <Button variant="outline" size="icon">
-            <MoreVertical />
-          </Button>
-
-          <Button variant="outline">
-            <Download />
-            <span className="hidden sm:block">Descargar</span>
-          </Button>
-
-          <CreatePersonForm onAddPerson={addPerson} />
-        </div>
-      </div>
+      <TableActions
+        members={members}
+        addMember={addMember}
+        deleteMember={deleteMember}
+        totalRows={totalRows}
+        selectedRowsIds={selectedRowsIds}
+      />
 
       <Table>
         <TableHeader className="bg-muted/50">
@@ -172,10 +133,9 @@ export function DataTable() {
           )}
         </TableBody>
       </Table>
-      {people.length > 0 && (
+      {members.length > 0 && (
         <div className="inline-flex text-muted-foreground text-sm">
-          {table.getFilteredSelectedRowModel().rows.length} de{" "}
-          {table.getFilteredRowModel().rows.length} seleccionado(s).
+          {selectedRows} de {totalRows} seleccionado(s).
         </div>
       )}
     </>

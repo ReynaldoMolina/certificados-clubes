@@ -1,25 +1,25 @@
-import { Person } from "@/types/types";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-} from "../ui/dropdown-menu";
+import { Member } from "@/types/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { SortButton } from "./sorting-button";
-import { Checkbox } from "../ui/checkbox";
-import { ClaseBadge } from "./clase-badge";
-import { ClubBadge } from "./club-badge";
-import { DeletePerson } from "./delete-register";
-import { EditPerson } from "../form/edit";
-import { Button } from "../ui/button";
-import { MoreHorizontal } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { DeletePerson } from "./delete-row";
+import { EditMember } from "@/components/table/edit-row";
 import { RowOptions } from "./row-options";
+import { ClaseCell, ClubCell } from "./cells";
 
 export function getColumns(
-  onDeletePerson: (p: Person) => void,
-  onEditPerson: (p: Person) => void
-): ColumnDef<Person>[] {
+  editMember: (
+    index: number,
+    updated: Member
+  ) => {
+    id: string;
+    url: string;
+  },
+  deleteMember: (indexes: number[]) => {
+    id: string;
+    url: string;
+  }
+): ColumnDef<Member>[] {
   return [
     {
       id: "select",
@@ -31,7 +31,7 @@ export function getColumns(
           }
           onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
           aria-label="Select all"
-          className="mr-1.5"
+          className="mr-2"
         />
       ),
       cell: ({ row }) => (
@@ -39,44 +39,44 @@ export function getColumns(
           checked={row.getIsSelected()}
           onCheckedChange={(value) => row.toggleSelected(!!value)}
           aria-label="Select row"
-          className="mr-1.5"
+          className="mr-2"
         />
       ),
-      size: 30,
-      maxSize: 30,
       enableSorting: false,
     },
     {
-      accessorKey: "nombre",
+      accessorKey: "n",
       header: ({ column }) => <SortButton label="Nombre" column={column} />,
-      size: 400,
     },
     {
-      accessorKey: "club",
+      accessorKey: "c",
       header: ({ column }) => <SortButton label="Club" column={column} />,
-      cell: ({ row }) => <ClubBadge club={row.original.club} />,
-      size: 100,
+      cell: ClubCell,
     },
     {
-      accessorKey: "clase",
+      accessorKey: "l",
       header: ({ column }) => <SortButton label="Clase" column={column} />,
-      cell: ({ row }) => <ClaseBadge clase={row.original.clase} />,
-      size: 100,
+      cell: ({ row }) => (
+        <ClaseCell value={row.original.l} club={row.original.c} />
+      ),
     },
     {
-      id: "actions",
-      header: "",
+      id: "options",
+      header: "Opciones",
       cell: ({ row }) => {
-        const person = row.original;
+        const member = row.original;
 
         return (
           <RowOptions>
-            <EditPerson person={person} onEdit={onEditPerson} />
-            <DeletePerson onDelete={() => onDeletePerson(person)} />
+            <EditMember
+              index={row.index}
+              member={member}
+              editMember={editMember}
+            />
+            <DeletePerson index={[row.index]} deleteMember={deleteMember} />
           </RowOptions>
         );
       },
-      size: 40,
     },
   ];
 }

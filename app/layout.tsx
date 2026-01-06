@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { Header } from "@/components/header";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -37,7 +38,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className="flex relative flex-col gap-6">
+            <Header />
+            <main className="flex flex-col w-full p-4 max-w-5xl mx-auto gap-6 mb-12">
+              {children}
+            </main>
+          </div>
           <Toaster closeButton />
         </ThemeProvider>
       </body>

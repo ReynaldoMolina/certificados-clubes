@@ -13,6 +13,7 @@ export function ToggleTheme({ className }: ToggleThemeProps) {
   const { setTheme, theme } = useTheme();
 
   function toggleTheme() {
+    if (theme === "system") setTheme("light");
     if (theme === "light") setTheme("dark");
     if (theme === "dark") setTheme("light");
   }

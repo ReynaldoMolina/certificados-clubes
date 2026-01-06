@@ -16,12 +16,12 @@ interface RowOptionsProps {
 export function RowOptions({ children }: RowOptionsProps) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>
         <Button variant="ghost" aria-label="Mostrar opciones" size="icon-sm">
           <MoreVertical />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent align="end">
         <DropdownMenuGroup>{children}</DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

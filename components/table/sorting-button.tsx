@@ -1,11 +1,11 @@
 import { ArrowUpDown } from "lucide-react";
 import { Button } from "../ui/button";
 import { Column } from "@tanstack/react-table";
-import { Person } from "@/types/types";
+import { Member } from "@/types/types";
 
 interface SortButtonProps {
   label: string;
-  column: Column<Person, unknown>;
+  column: Column<Member, unknown>;
 }
 
 export function SortButton({ label, column }: SortButtonProps) {

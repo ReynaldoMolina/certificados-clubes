@@ -5,19 +5,21 @@ import Logo from "@/public/logo.svg";
 
 export function Header() {
   return (
-    <header className="flex items-center sticky top-0 gap-1 w-full max-w-5xl mx-auto px-4 py-3 bg-background">
-      <Button variant="ghost" size="icon" asChild>
-        <Link href="/">
-          <Logo className="size-7" />
-        </Link>
-      </Button>
-      <Button variant="ghost" asChild>
-        <Link href="/#mis-certificados">Mis certificados</Link>
-      </Button>
-      <Button variant="ghost" asChild>
-        <Link href="/#plantillas">Plantillas</Link>
-      </Button>
-      <ToggleTheme className="ml-auto" />
+    <header className="flex sticky top-0 bg-background z-50 border-b">
+      <div className="flex items-center gap-1 w-full max-w-5xl mx-auto px-4 py-3">
+        <Button variant="ghost" size="icon" asChild className="rounded-full">
+          <Link href="/">
+            <Logo className="size-7" />
+          </Link>
+        </Button>
+        <Button variant="ghost" asChild>
+          <Link href="/#mis-certificados">Mis certificados</Link>
+        </Button>
+        <Button variant="ghost" asChild>
+          <Link href="/#diseños">Diseños</Link>
+        </Button>
+        <ToggleTheme className="ml-auto" />
+      </div>
     </header>
   );
 }
