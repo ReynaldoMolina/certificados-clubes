@@ -17,17 +17,12 @@ export function FilterPills({
   onChange: (id: string) => void;
 }) {
   return (
-    <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+    <div className="flex gap-2 overflow-x-auto no-scrollbar">
       {CATEGORIAS.map((cat) => (
         <Badge
           key={cat.id}
           variant={active === cat.id ? "default" : "outline"}
-          className={cn(
-            "cursor-pointer px-4 py-1.5 transition-all whitespace-nowrap",
-            active === cat.id
-              ? "bg-primary"
-              : "text-muted-foreground hover:bg-secondary"
-          )}
+          className="cursor-pointer py-1"
           onClick={() => onChange(cat.id)}
         >
           {cat.label}
