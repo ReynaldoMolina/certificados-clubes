@@ -6,11 +6,11 @@ export function Hero() {
   return (
     <div className="flex flex-col gap-6 items-center max-w-2xl mx-auto my-15">
       <TypographyH1 className="text-5xl">
-        Certificados de investidura
+        Certificados de investidura para clubes
       </TypographyH1>
       <TypographyP className="not-first:mt-0 text-center">
-        Crea cerfiticados para tu investidura de clubes de manera fácil y
-        rápida.
+        Genera cerfiticados para tu investidura de clubes de Aventureros,
+        Conquistadores y Guías Mayores en PDF de manera fácil, rápida y gratis.
       </TypographyP>
       <div className="inline-flex gap-3">
         <Button asChild>
