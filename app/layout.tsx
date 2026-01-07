@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   title: "Certificados de investidura para clubes adventistas",
   description:
     "Crea certificados de investidura para clubes de Aventureros, Conquistadores y Guías Mayores, todas las clases disponibles. Genera un PDF listo para imprimir.",
+  verification: {
+    google: "y2XmurUXOKuCqgKtQ5ICqHkFb-zHVlKVxBKUSiB519U",
+  },
 };
 
 export default function RootLayout({
