@@ -8,8 +8,6 @@ interface DesignCardProps {
 }
 
 export function DesignCard({ design }: DesignCardProps) {
-  console.log(design.id);
-
   return (
     <Link
       href={`/preview?design_id=${design.id}`}
