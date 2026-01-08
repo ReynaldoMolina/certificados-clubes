@@ -14,6 +14,7 @@ export function DesignCard({ design }: DesignCardProps) {
     <Link
       href={`/preview?design_id=${design.id}`}
       scroll={false}
+      aria-label={`Diseño ${design.id}`}
       className="flex relative"
     >
       <Image

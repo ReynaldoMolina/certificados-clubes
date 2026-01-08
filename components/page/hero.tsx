@@ -9,8 +9,8 @@ export function Hero() {
         Certificados de investidura para clubes
       </TypographyH1>
       <TypographyP className="not-first:mt-0 text-center">
-        Genera cerfiticados para tu investidura de clubes de Aventureros,
-        Conquistadores y Guías Mayores en PDF de manera fácil, rápida y gratis.
+        Genera cerfiticados para investidura de Aventureros, Conquistadores o
+        Guías Mayores en PDF de manera fácil, rápida y gratis.
       </TypographyP>
       <div className="inline-flex gap-3">
         <Button asChild>

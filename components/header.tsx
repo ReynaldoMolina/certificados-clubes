@@ -8,8 +8,8 @@ export function Header() {
     <header className="flex sticky top-0 bg-background z-50 border-b">
       <div className="flex items-center gap-1 w-full max-w-5xl mx-auto px-4 py-3">
         <Button variant="ghost" size="icon" asChild className="rounded-full">
-          <Link href="/">
-            <Logo className="size-7" />
+          <Link href="/" aria-label="Ir a inicio">
+            <Logo className="size-7" alt="Logo" />
           </Link>
         </Button>
         <Button variant="ghost" asChild>
