@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 export function Hero() {
   return (
     <div className="flex flex-col gap-6 items-center max-w-2xl mx-auto my-15">
-      <TypographyH1 className="text-5xl">
+      <TypographyH1 className="md:text-5xl">
         Certificados de investidura para clubes
       </TypographyH1>
       <TypographyP className="not-first:mt-0 text-center">
