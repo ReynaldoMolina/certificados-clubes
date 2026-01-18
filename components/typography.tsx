@@ -36,7 +36,7 @@ export function TypographyH4({ children, className }: TypographyProps) {
   return (
     <h4
       className={cn(
-        "scroll-m-20 text-xl font-semibold tracking-tight",
+        "scroll-m-20 mt-10 text-xl font-semibold tracking-tight",
         className
       )}
     >
@@ -47,6 +47,10 @@ export function TypographyH4({ children, className }: TypographyProps) {
 
 export function TypographyP({ children, className }: TypographyProps) {
   return (
-    <p className={cn("leading-7 not-first:mt-6", className)}>{children}</p>
+    <p className={cn("leading-7 not-first:mt-3", className)}>{children}</p>
   );
+}
+
+export function TypographyList({ children }: TypographyProps) {
+  return <ul className="mt-3 ml-6 list-disc [&>li]:mt-2">{children}</ul>;
 }
