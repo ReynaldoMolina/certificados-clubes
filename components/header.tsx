@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { ToggleTheme } from "./toggle-theme";
@@ -9,17 +11,63 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import { Menu } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "./ui/navigation-menu";
+import { navigationLinks, sideMenuLinks } from "@/lib/links";
 
 export function Header() {
   return (
     <header className="flex w-full sticky top-0 bg-background z-50 px-4 py-3">
-      <div className="hidden md:flex items-center gap-1 w-full">
-        <HeaderLinks />
-      </div>
+      <NavigationMenu viewport={false} className="relative hidden md:flex">
+        <NavigationMenuList className="flex-wrap">
+          {navigationLinks.map((e) => {
+            if (e.items.length > 0)
+              return (
+                <NavigationMenuItem key={e.label}>
+                  <NavigationMenuTrigger>{e.label}</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-50">
+                      {e.items.map((i) => (
+                        <li key={i.label}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              href={i.url}
+                              className="block rounded-md p-2 hover:bg-muted"
+                            >
+                              {i.label}
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              );
+
+            return (
+              <NavigationMenuItem key={e.label}>
+                <NavigationMenuLink
+                  asChild
+                  className={navigationMenuTriggerStyle()}
+                >
+                  <Link href={e.url}>{e.label}</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            );
+          })}
+        </NavigationMenuList>
+      </NavigationMenu>
 
       <Sheet>
         <SheetTrigger asChild className="block md:hidden">
-          <Button variant="ghost">
+          <Button variant="ghost" className="flex">
             <Menu className="size-4" />
             Menú
           </Button>
@@ -30,34 +78,20 @@ export function Header() {
           </SheetHeader>
 
           <nav className="grid flex-1 auto-rows-min gap-1 px-4">
-            <HeaderLinks className="justify-start" />
+            {sideMenuLinks.map((e) => (
+              <Button
+                key={e.label}
+                variant="link"
+                asChild
+                className="justify-start"
+              >
+                <Link href={e.url}>{e.label}</Link>
+              </Button>
+            ))}
           </nav>
         </SheetContent>
       </Sheet>
       <ToggleTheme className="ml-auto" />
     </header>
-  );
-}
-
-interface HeaderLinksProps {
-  className?: string;
-}
-
-export function HeaderLinks({ className }: HeaderLinksProps) {
-  return (
-    <>
-      <Button variant="link" asChild className={className}>
-        <Link href="/">Inicio</Link>
-      </Button>
-      <Button variant="link" asChild className={className}>
-        <Link href="/#mis-certificados">Mis certificados</Link>
-      </Button>
-      <Button variant="link" asChild className={className}>
-        <Link href="/#diseños">Diseños</Link>
-      </Button>
-      <Button variant="link" asChild className={className}>
-        <Link href="/#info">Información</Link>
-      </Button>
-    </>
   );
 }

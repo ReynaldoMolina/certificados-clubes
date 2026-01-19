@@ -9,9 +9,7 @@ import Link from "next/link";
 export default function Page() {
   return (
     <div className="mx-auto max-w-5xl scroll-m-30">
-      <TypographyH1 className="my-10">
-        Política de Privacidad – Certificados de investidura para clubes
-      </TypographyH1>
+      <TypographyH1 className="my-10">Política de Privacidad</TypographyH1>
 
       <TypographyP>
         En <strong>Certificados de investidura para clubes</strong>, respetamos

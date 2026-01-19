@@ -1,8 +1,8 @@
 import { Code, Mail } from "lucide-react";
 import Link from "next/link";
-import { Button } from "../ui/button";
-import { GoToTop } from "./go-to-top";
-import { HeaderLinks } from "../header";
+import { Button } from "./ui/button";
+import { legalLinks, siteMapLinks } from "@/lib/links";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -10,16 +10,24 @@ export function Footer() {
       {/* main container */}
       <div className="flex flex-col md:flex-row gap-6 w-full px-4 py-6 max-w-5xl mx-auto">
         {/* social */}
-        <div className="flex flex-col gap-10 items-center md:items-start">
+        <div className="flex flex-col gap-7 items-center md:items-start">
           <Link
             href="https://reynaldomolina.github.io/"
-            className="inline-flex gap-3 items-center md:mx-auto text-lg font-semibold hover:underline"
+            className="inline-flex gap-3 items-center text-lg font-semibold hover:underline"
           >
-            <Code className="size-6" />
+            <Image
+              src="/me.png"
+              height={421}
+              width={420}
+              alt="Me"
+              className="rounded-full size-10 bg-muted"
+            />
             Reynaldo Molina
           </Link>
 
-          {/* <p className="text-muted-foreground">Hola</p> */}
+          <p className="text-muted-foreground max-w-70 text-center md:text-left">
+            Desarrollador web con experiencia en clubes adventistas.
+          </p>
 
           <div className="inline-flex gap-3 items-center">
             <Button asChild className="rounded-full" size="icon">
@@ -52,28 +60,30 @@ export function Footer() {
               </Link>
             </Button>
           </div>
-
-          <GoToTop />
         </div>
 
         {/* links */}
         <div className="flex flex-col md:flex-row md:ml-auto gap-10 mt-10 md:mt-0">
-          <div className="flex w-full md:w-fit flex-col gap-3">
+          <div className="flex w-full md:w-fit flex-col gap-3 md:items-start">
             <span className="font-bold text-center md:text-left md:mx-3">
               Links
             </span>
-            <HeaderLinks className="justify-center md:justify-start w-full" />
+            {siteMapLinks.map((e) => (
+              <Button key={e.label} variant="link" asChild className="">
+                <Link href={e.url}>{e.label}</Link>
+              </Button>
+            ))}
           </div>
+
           <div className="flex w-full md:w-fit flex-col gap-3 md:items-start">
             <span className="font-bold text-center md:text-left md:mx-3">
               Legal
             </span>
-            <Button variant="link" asChild className="">
-              <Link href="/privacidad">Política de privacidad</Link>
-            </Button>
-            <Button variant="link" asChild className="">
-              <Link href="/terminos">Términos y condiciones</Link>
-            </Button>
+            {legalLinks.map((e) => (
+              <Button key={e.label} variant="link" asChild>
+                <Link href={e.url}>{e.label}</Link>
+              </Button>
+            ))}
           </div>
         </div>
       </div>
