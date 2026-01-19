@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer/footer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -38,6 +39,7 @@ export default function RootLayout({
             <main className="flex flex-col w-full p-4 max-w-5xl mx-auto gap-6 mb-12">
               {children}
             </main>
+            <Footer />
           </div>
           <Toaster closeButton />
         </ThemeProvider>

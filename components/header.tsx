@@ -9,12 +9,11 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import { Menu } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 export function Header() {
   return (
-    <header className="flex sticky top-0 bg-background z-50 px-4 py-3">
-      <div className="hidden md:flex items-center gap-1 w-full max-w-5xl mx-auto">
+    <header className="flex w-full sticky top-0 bg-background z-50 px-4 py-3">
+      <div className="hidden md:flex items-center gap-1 w-full">
         <HeaderLinks />
       </div>
 
@@ -31,7 +30,7 @@ export function Header() {
           </SheetHeader>
 
           <nav className="grid flex-1 auto-rows-min gap-1 px-4">
-            <HeaderLinks mobile />
+            <HeaderLinks className="justify-start" />
           </nav>
         </SheetContent>
       </Sheet>
@@ -41,38 +40,22 @@ export function Header() {
 }
 
 interface HeaderLinksProps {
-  mobile?: boolean;
+  className?: string;
 }
 
-function HeaderLinks({ mobile }: HeaderLinksProps) {
+export function HeaderLinks({ className }: HeaderLinksProps) {
   return (
     <>
-      <Button
-        variant="ghost"
-        asChild
-        className={cn(mobile ? "justify-start" : "")}
-      >
+      <Button variant="link" asChild className={className}>
         <Link href="/">Inicio</Link>
       </Button>
-      <Button
-        variant="ghost"
-        asChild
-        className={cn(mobile ? "justify-start" : "")}
-      >
+      <Button variant="link" asChild className={className}>
         <Link href="/#mis-certificados">Mis certificados</Link>
       </Button>
-      <Button
-        variant="ghost"
-        asChild
-        className={cn(mobile ? "justify-start" : "")}
-      >
+      <Button variant="link" asChild className={className}>
         <Link href="/#diseños">Diseños</Link>
       </Button>
-      <Button
-        variant="ghost"
-        asChild
-        className={cn(mobile ? "justify-start" : "")}
-      >
+      <Button variant="link" asChild className={className}>
         <Link href="/#info">Información</Link>
       </Button>
     </>
