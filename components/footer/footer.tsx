@@ -64,7 +64,7 @@ export function Footer() {
             </span>
             <HeaderLinks className="justify-center md:justify-start w-full" />
           </div>
-          <div className="flex w-full md:w-fit flex-col gap-3">
+          <div className="flex w-full md:w-fit flex-col gap-3 md:items-start">
             <span className="font-bold text-center md:text-left md:mx-3">
               Legal
             </span>
@@ -72,7 +72,7 @@ export function Footer() {
               <Link href="/privacidad">Política de privacidad</Link>
             </Button>
             <Button variant="link" asChild className="">
-              <Link href="/terminos">Términos de servicio</Link>
+              <Link href="/terminos">Términos y condiciones</Link>
             </Button>
           </div>
         </div>

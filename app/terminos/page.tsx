@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="mx-auto max-w-5xl px-4 scroll-m-30">
+    <div className="mx-auto max-w-5xl scroll-m-30">
       <TypographyH1 className="my-10">
         Términos y Condiciones – Certificados de investidura para clubes
       </TypographyH1>
