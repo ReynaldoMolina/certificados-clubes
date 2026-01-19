@@ -22,6 +22,7 @@ import { useState } from "react";
 import { getColumns } from "./columns";
 import { TableActions } from "./actions/actions";
 import { useCertificate } from "@/lib/use-certificate";
+import { ActionsExport } from "./actions/actions-export";
 
 export function DataTable() {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -56,7 +57,6 @@ export function DataTable() {
   return (
     <>
       <TableActions
-        members={members}
         addMember={addMember}
         deleteMember={deleteMember}
         totalRows={totalRows}
@@ -127,7 +127,7 @@ export function DataTable() {
                 colSpan={columns.length}
                 className="h-24 text-center text-muted-foreground"
               >
-                No hay resultados.
+                Primero agrega un miembro.
               </TableCell>
             </TableRow>
           )}
@@ -138,6 +138,8 @@ export function DataTable() {
           {selectedRows} de {totalRows} seleccionado(s).
         </div>
       )}
+
+      <ActionsExport members={members} />
     </>
   );
 }

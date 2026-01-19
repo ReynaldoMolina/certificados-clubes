@@ -80,7 +80,7 @@ export function AddMemberForm({ addMember }: AddMemberFormProps) {
       <DialogTrigger asChild>
         <Button>
           <Plus />
-          <span className="hidden xs:block">Agregar</span>
+          Agregar
         </Button>
       </DialogTrigger>
       <DialogContent className="max-h-[95dvh] overflow-auto">

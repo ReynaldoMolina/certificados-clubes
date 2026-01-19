@@ -22,11 +22,16 @@ export function DownloadPdf({ disabled }: PdfProps) {
   );
 
   return (
-    <Button variant="outline" disabled={disabled} asChild={!disabled}>
+    <Button
+      variant="secondary"
+      disabled={disabled}
+      asChild={!disabled}
+      className="w-full py-10"
+    >
       {disabled ? (
         <>
           <Download />
-          <span className="hidden sm:block">Descargar</span>
+          Descargar
         </>
       ) : (
         <PDFDownloadLink
@@ -34,7 +39,7 @@ export function DownloadPdf({ disabled }: PdfProps) {
           fileName={title}
         >
           <Download />
-          <span className="hidden sm:block">Descargar</span>
+          Descargar
         </PDFDownloadLink>
       )}
     </Button>

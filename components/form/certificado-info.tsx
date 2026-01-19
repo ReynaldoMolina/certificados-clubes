@@ -16,16 +16,18 @@ export function EditCertificado() {
       <ParamsInput
         defaultValue={title}
         paramKey="title"
-        label="Nombre del archivo"
+        label="Nombre"
         placeholder="Nombre"
       />
-      <ParamDatePicker paramKey="date" defaultValue={date} label="Fecha" />
-      <ParamsInput
-        defaultValue={place}
-        paramKey="place"
-        label="Lugar (Ciudad, País)"
-        placeholder="Lugar"
-      />
+      <div className="flex flex-col sm:flex-row gap-6 w-full">
+        <ParamDatePicker paramKey="date" defaultValue={date} label="Fecha" />
+        <ParamsInput
+          defaultValue={place}
+          paramKey="place"
+          label="Lugar (Ciudad, País)"
+          placeholder="Lugar"
+        />
+      </div>
       <ParamsInput
         defaultValue={logo}
         paramKey="logo"

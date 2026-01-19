@@ -53,11 +53,11 @@ export function DeleteMembers({
       <AlertDialogTrigger asChild>
         <Button
           variant="outline"
-          size="icon"
           aria-label="Delete"
           disabled={selectedRowsIds.length < 1}
         >
           <Trash />
+          <span className="hidden xs:block">Eliminar</span>
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>

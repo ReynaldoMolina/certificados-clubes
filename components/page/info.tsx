@@ -28,33 +28,39 @@ export function Info() {
         lo más importante: guiar, motivar y acompañar a sus clubes.
       </TypographyP>
 
-      <TypographyH4>¿Cómo funciona la página?</TypographyH4>
+      <TypographyH4>Cómo generar tus certificados paso a paso</TypographyH4>
       <TypographyList>
-        <li>Elige un diseño.</li>
+        <li>
+          Selecciona un diseño de acuerdo al club (Aventureros o
+          Conquistadores/Guías Mayores).
+        </li>
+        <li>Rellena los datos de la investidura.</li>
         <li>Añade los nombres y las clases de los miembros investidos.</li>
-        <li>Descarga los certificados en PDF.</li>
+        <li>Descarga el PDF listo para imprimir.</li>
       </TypographyList>
 
       <TypographyH4>¿Quieres agregar un diseño?</TypographyH4>
       <TypographyP>
-        Con gusto, puedes enviarme imágenes de referencia:{" "}
+        Con gusto, puedes enviarnos imágenes de referencia a nuestro{" "}
         <Link
           href="mailto:molinareynaldo952@gmail.com?subject=Certificados%20investidura%20-%20Diseño%20nuevo"
           className="text-blue-900 dark:text-blue-200 underline"
         >
-          molinareynaldo952@gmail.com
+          correo
         </Link>
+        .
       </TypographyP>
 
       <TypographyH4>¿Encontraste un problema?</TypographyH4>
       <TypographyP>
-        Explícame la situación:{" "}
+        Explícanos la situación a nuestro{" "}
         <Link
           href="mailto:molinareynaldo952@gmail.com?subject=Certificados%20investidura%20-%20Bug"
           className="text-blue-900 dark:text-blue-200 underline"
         >
-          molinareynaldo952@gmail.com
+          correo
         </Link>
+        .
       </TypographyP>
 
       <TypographyH4>¿Por qué hay anuncios?</TypographyH4>

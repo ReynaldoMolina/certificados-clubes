@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 
 export function Hero() {
   return (
-    <div className="flex flex-col gap-6 items-center max-w-2xl mx-auto my-15 scroll-m-40">
+    <div className="flex flex-col gap-6 items-center max-w-2xl mx-auto my-10 scroll-m-40">
       <TypographyH1 className="md:text-5xl">
         Certificados de investidura para clubes
       </TypographyH1>

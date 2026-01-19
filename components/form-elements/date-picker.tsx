@@ -46,8 +46,10 @@ export function ParamDatePicker({
   }
 
   return (
-    <div className="flex flex-col gap-3">
-      <Label htmlFor={paramKey}>{label}</Label>
+    <div className="w-full flex flex-col gap-3">
+      <Label className="font-semibold" htmlFor={paramKey}>
+        {label}
+      </Label>
 
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>

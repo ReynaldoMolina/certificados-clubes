@@ -13,15 +13,15 @@ export function ViewPdf({ disabled }: PdfProps) {
 
   return (
     <Button
-      variant="outline"
-      className="hidden sm:flex"
+      variant="secondary"
+      className="hidden md:flex w-full py-10"
       disabled={disabled}
       asChild={!disabled}
     >
       {disabled ? (
         <>
           <Printer />
-          <span className="hidden sm:block">Ver</span>
+          Ver
         </>
       ) : (
         <Link href={`/pdf?${url}`} target="_blank">

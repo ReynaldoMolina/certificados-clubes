@@ -22,7 +22,7 @@ export function MisCertificados() {
 
   return (
     <section id="mis-certificados" className="flex flex-col gap-6 scroll-m-10">
-      <TypographyH2 className="first:mt-15">Mis certificados</TypographyH2>
+      <TypographyH2>Mis certificados</TypographyH2>
       {savedLinks.length === 0 ? (
         <p>No hay certificados guardados.</p>
       ) : (

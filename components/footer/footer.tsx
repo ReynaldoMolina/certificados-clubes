@@ -69,10 +69,10 @@ export function Footer() {
               Legal
             </span>
             <Button variant="link" asChild className="">
-              <Link href="#">Política de privacidad</Link>
+              <Link href="/privacidad">Política de privacidad</Link>
             </Button>
             <Button variant="link" asChild className="">
-              <Link href="/#diseños">Términos de servicio</Link>
+              <Link href="/terminos">Términos de servicio</Link>
             </Button>
           </div>
         </div>
