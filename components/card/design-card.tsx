@@ -2,6 +2,7 @@ import { Design } from "@/lib/designs";
 import { Eye } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "../ui/button";
 
 interface DesignCardProps {
   design: Design;
@@ -13,7 +14,7 @@ export function DesignCard({ design }: DesignCardProps) {
       href={`/preview?design_id=${design.id}`}
       scroll={false}
       aria-label={`Diseño ${design.id}`}
-      className="flex relative"
+      className="flex flex-col gap-2"
     >
       <Image
         width={660}
@@ -22,7 +23,10 @@ export function DesignCard({ design }: DesignCardProps) {
         alt="Thumbnail"
         className="rounded shadow w-full"
       />
-      <Eye className="flex absolute right-2 top-2 size-6 bg-muted/80 p-1 rounded-md text-muted-foreground dark:text-white" />
+      <Button variant="secondary" type="button" className="cursor-pointer">
+        <Eye />
+        Ver diseño
+      </Button>
     </Link>
   );
 }

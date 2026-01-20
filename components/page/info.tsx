@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {
   TypographyH2,
-  TypographyH4,
+  TypographyH3,
   TypographyList,
   TypographyP,
 } from "../typography";
@@ -19,7 +19,7 @@ export function Info() {
         sentido de pertenencia al club.
       </TypographyP>
 
-      <TypographyH4>¿Cómo te ayuda esta página?</TypographyH4>
+      <TypographyH3>¿Cómo te ayuda esta página?</TypographyH3>
       <TypographyP>
         Para los directores, crear los certificados puede ser una tarea que
         consume tiempo y requiere mucha atención al detalle. Quisimos
@@ -28,7 +28,7 @@ export function Info() {
         lo más importante: guiar, motivar y acompañar a sus clubes.
       </TypographyP>
 
-      <TypographyH4>Cómo generar tus certificados paso a paso</TypographyH4>
+      <TypographyH3>Cómo generar tus certificados paso a paso</TypographyH3>
       <TypographyList>
         <li>
           Selecciona un diseño de acuerdo al club (Aventureros o
@@ -39,7 +39,7 @@ export function Info() {
         <li>Descarga el PDF listo para imprimir.</li>
       </TypographyList>
 
-      <TypographyH4>¿Quieres agregar un diseño?</TypographyH4>
+      <TypographyH3>¿Quieres agregar un diseño?</TypographyH3>
       <TypographyP>
         Con gusto, puedes enviarnos imágenes de referencia a nuestro{" "}
         <Link
@@ -51,7 +51,7 @@ export function Info() {
         .
       </TypographyP>
 
-      <TypographyH4>¿Encontraste un problema?</TypographyH4>
+      <TypographyH3>¿Encontraste un problema?</TypographyH3>
       <TypographyP>
         Explícanos la situación a nuestro{" "}
         <Link
@@ -63,7 +63,7 @@ export function Info() {
         .
       </TypographyP>
 
-      <TypographyH4>¿Por qué hay anuncios?</TypographyH4>
+      <TypographyH3>¿Por qué hay anuncios?</TypographyH3>
       <TypographyP>
         Los anuncios ayudan a mantener el proyecto activo, pero si quieres
         apoyar directamente el desarrollo puedes hacerlo por{" "}

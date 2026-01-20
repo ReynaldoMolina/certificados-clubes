@@ -18,7 +18,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -35,12 +35,13 @@ export function PreviewPage({ designId }: PreviewPageProps) {
         <DialogHeader>
           <DialogTitle className="text-sm">Vista previa</DialogTitle>
           <DialogDescription>
-            <span className="inline-flex gap-1 items-center sm:hidden">
-              Desliza para ver todas las clases{" "}
+            <div className="inline-flex gap-1 items-center sm:hidden">
+              <ArrowLeft className="size-4" />
+              <span>Desliza para ver todas las clases</span>
               <ArrowRight className="size-4" />
-            </span>
+            </div>
             <span className="hidden sm:block">
-              Click en las flechas para ver todas las clases
+              Click en las flechas para ver todas las clases.
             </span>
           </DialogDescription>
         </DialogHeader>
@@ -72,8 +73,8 @@ export function PreviewPage({ designId }: PreviewPageProps) {
         <DialogFooter>
           <Button className="w-full max-w-sm mx-auto" asChild>
             <Link href={`/editor?design_id=${designId}&title=Certificados`}>
-              Usar diseño
               <ExternalLink />
+              Usar diseño
             </Link>
           </Button>
         </DialogFooter>

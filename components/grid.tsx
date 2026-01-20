@@ -11,7 +11,3 @@ export function Grid({ children }: TemplateGridProps) {
     </div>
   );
 }
-
-export function GridSubtitle({ children }: TemplateGridProps) {
-  return <h3 className="text-md">{children}</h3>;
-}

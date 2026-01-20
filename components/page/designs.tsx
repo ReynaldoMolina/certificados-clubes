@@ -1,11 +1,11 @@
 "use client";
 
 import { Fragment, useState } from "react";
-import { Grid, GridSubtitle } from "../grid";
+import { Grid } from "../grid";
 import { DesignCard } from "../card/design-card";
 import { designs } from "@/lib/designs";
-import { FilterPills } from "./filter-pills"; // Importa tus pills
-import { TypographyH2 } from "../typography";
+import { FilterPills } from "./filter-pills";
+import { TypographyH2, TypographyH3 } from "../typography";
 
 export function MyDesigns() {
   const [filter, setFilter] = useState("todos");
@@ -31,11 +31,11 @@ export function MyDesigns() {
       {Object.entries(groupedTemplates).length > 0 ? (
         Object.entries(groupedTemplates).map(([club, designsList]) => (
           <Fragment key={club}>
-            <GridSubtitle>
+            <TypographyH3>
               {club === "Aventurero"
                 ? "Aventureros"
                 : "Conquistadores / Guías Mayores"}
-            </GridSubtitle>
+            </TypographyH3>
             <Grid>
               {designsList.map((design) => (
                 <DesignCard key={design.id} design={design} />
