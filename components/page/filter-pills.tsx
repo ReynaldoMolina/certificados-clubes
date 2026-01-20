@@ -22,7 +22,7 @@ export function FilterPills({
         <Badge
           key={cat.id}
           variant={active === cat.id ? "default" : "outline"}
-          className="cursor-pointer py-1"
+          className="cursor-pointer text-sm py-1 px-3"
           onClick={() => onChange(cat.id)}
         >
           {cat.label}
