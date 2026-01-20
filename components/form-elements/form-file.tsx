@@ -1,5 +1,4 @@
-import { Field, FieldDescription, FieldLabel } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
+import { Field } from "@/components/ui/field";
 import { ensureId } from "@/lib/ensure-id";
 import { supabase } from "@/lib/supabase-client";
 import { useCertificate } from "@/lib/use-certificate";
@@ -122,7 +121,7 @@ export function InputFile({ defaultLogo }: Props) {
           alt="Logo"
           width={120}
           height={120}
-          className="size-35 object-contain rounded-lg border p-2 w-full md:w-fit"
+          className="size-35 dark:bg-muted object-contain rounded-lg border p-2 w-full md:w-fit"
         />
       )}
     </div>
