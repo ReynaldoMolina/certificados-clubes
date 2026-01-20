@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { ParamDatePicker } from "../form-elements/date-picker";
 import { ParamsInput } from "../form-elements/params-input";
+import { InputFile } from "../form-elements/form-file";
 
 export function EditCertificado() {
   const searchParams = useSearchParams();
@@ -28,12 +29,7 @@ export function EditCertificado() {
           placeholder="Lugar"
         />
       </div>
-      <ParamsInput
-        defaultValue={logo}
-        paramKey="logo"
-        label="Logo del club (URL)"
-        placeholder="URL (Drive)"
-      />
+      <InputFile defaultLogo={logo} />
     </div>
   );
 }
